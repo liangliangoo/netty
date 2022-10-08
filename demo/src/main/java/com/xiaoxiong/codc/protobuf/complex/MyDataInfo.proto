@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+option java_package = "com.xiaoxiong.codc.protobuf.complex.pojo";
+option java_outer_classname = "MyDataInfo";
+
+message MyMessage {
+
+  enum DataType {
+    TeacherType = 0;
+    WorkerType = 2;
+  }
+
+  DataType type = 1;
+
+  oneof dataBody {
+    Teacher teacher = 2;
+    Worker worker = 3;
+  }
+
+}
+
+message Teacher {
+  int32 id = 1;
+  string name = 2;
+}
+
+message Worker {
+  string name = 1;
+  int32 age = 2;
+}
